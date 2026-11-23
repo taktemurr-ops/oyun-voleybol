@@ -5,7 +5,6 @@ import 'package:arcade_motoru/voleybol.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const voleybolId = 'oyun-voleybol';
 
@@ -88,7 +87,7 @@ final voleybolConfig = GameConfig(
   rules: voleybolRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => voleybolRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => voleybolRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintVolley(c, s, p, t);
